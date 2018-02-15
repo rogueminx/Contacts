@@ -5,18 +5,19 @@ require('./lib/contact')
 require('pry')
 
 get('/') do
-  @list = Item.all()
-  erb(:list)
+  @contact_list = Contacts.all()
+  erb(:input)
 end
 
 post('/') do
-  name = params["name"]
-  rank = params["rank"]
-  item = Contacts.new(name, rank)
-  item.rank = rank
-  item.save()
-  Item.sort
+  first_name = params["first_name"]
+  last_name = params["last_name"]
+  company = params["company"]
+  job_title = params["job_title"]
+  contact_type = params["contact_type"]
+  contact = Contacts.new(params)
+  contact.save()
+  @contact = contact.print_contact()
 
-  @list = Item.all
-  erb(:list)
+  erb(:output)
 end

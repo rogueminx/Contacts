@@ -18,6 +18,13 @@ describe("Contacts")do
      end
    end
 
+   describe("#print_contact") do
+     it("returns contact info in a readable manner") do
+        print_contact = Contacts.new({:first_name=> "Anna Marie", :last_name=> "Smith", :job_title=> "Designer", :company=> "Epicodus", :contact_type=> "Co-worker"})
+        expect(print_contact.print_contact()).to(eq(["Anna Marie", "Smith", "Designer", "Epicodus", "Co-worker"]))
+      end
+    end
+
 
 
 end
