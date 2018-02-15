@@ -18,14 +18,25 @@ describe("Contacts")do
      end
    end
 
-   describe("#add_address") do
-     it("add an address to already exsisting contact") do
+   describe("#save") do
+     it("add an address to already existing contact") do
         # contact = Contacts.new({:first_name=> "Anna Marie", :last_name=> "Smith", :job_title=> "Designer", :company=> "Epicodus", :contact_type=> "Co-worker"})
         # contact.save()
         new_address = Address.new({:street=> "123 B Street", :city=> "Portland", :state=> "OR", :zip=> "97302"})
-        expect(new_address.add_address()).to(eq([new_address]))
+        expect(new_address.save()).to(eq([new_address]))
       end
     end
+
+    describe("#attach") do
+      it("will combine and show the contact with the new address") do
+         contact = Contacts.new({:first_name=> "Anna Marie", :last_name=> "Smith", :job_title=> "Designer", :company=> "Epicodus", :contact_type=> "Co-worker"})
+         contact.save()
+         new_address = Address.new({:street=> "123 B Street", :city=> "Portland", :state=> "OR", :zip=> "97302"})
+         new_address.save()
+         combined_info = Address.attach(contact, new_address)
+         expect(combined_info.attach()).to(eq())
+       end
+     end
 
    describe("#print_contact") do
      it("returns contact info in a readable manner") do

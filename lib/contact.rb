@@ -25,7 +25,7 @@ class Contacts
   end
 end
 
-class Address < Contacts
+class Address
 
   attr_accessor :street, :city, :state, :zip
 
@@ -42,6 +42,13 @@ class Address < Contacts
     @@address
   end
 
-  def add_address()
+  def save()
+    @@address.push(self)
+
   end
+
+  def self.attach(contact, new_address)
+
+  end
+
 end
