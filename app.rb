@@ -15,9 +15,10 @@ post('/') do
   company = params["company"]
   job_title = params["job_title"]
   contact_type = params["contact_type"]
+
   contact = Contacts.new(params)
   contact.save()
-  @contact = contact.print_contact()
-
+  @contact_list = Contacts.all
+  
   erb(:output)
 end

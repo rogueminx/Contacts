@@ -1,5 +1,7 @@
 class Contacts
 
+   attr_accessor :first_name, :last_name, :job_title, :company, :contact_type
+
   @@contacts = []
 
   def initialize(attributes)
@@ -20,6 +22,9 @@ class Contacts
 
   def print_contact()
     [@first_name, @last_name, @job_title, @company, @contact_type]
+  end
+
+  def add_address()
   end
 
 end
