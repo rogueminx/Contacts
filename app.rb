@@ -12,7 +12,7 @@ end
 post('/') do
   name = params["name"]
   rank = params["rank"]
-  item = Item.new(name, rank)
+  item = Contacts.new(name, rank)
   item.rank = rank
   item.save()
   Item.sort
