@@ -4,10 +4,17 @@ require('contact')
 
 describe("Contacts")do
 
+  describe(".all") do
+    it("is empty at first") do
+      expect(Contacts.all()).to(eq([]))
+    end
+  end
+
   describe("#save") do
     it("saves a new instance of contact") do
        contact = Contacts.new({:first_name=> "Anna Marie", :last_name=> "Smith", :job_title=> "Designer", :company=> "Epicodus", :contact_type=> "Co-worker"})
-       expect(contact.save()).to(eq("Anna-Marie"))
+       contact.save()
+       expect(Contacts.all()).to(eq([contact]))
      end
    end
 
