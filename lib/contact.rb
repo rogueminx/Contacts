@@ -23,8 +23,25 @@ class Contacts
   def print_contact()
     [@first_name, @last_name, @job_title, @company, @contact_type]
   end
+end
+
+class Address < Contacts
+
+  attr_accessor :street, :city, :state, :zip
+
+  @@address = []
+
+  def initialize(attributes)
+    @street = attributes.fetch(:street)
+    @city = attributes.fetch(:city)
+    @state = attributes.fetch(:state)
+    @zip = attributes.fetch(:zip)
+  end
+
+  def self.all()
+    @@address
+  end
 
   def add_address()
   end
-
 end

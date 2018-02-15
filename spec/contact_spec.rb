@@ -20,10 +20,10 @@ describe("Contacts")do
 
    describe("#add_address") do
      it("add an address to already exsisting contact") do
-        contact = Contacts.new({:first_name=> "Anna Marie", :last_name=> "Smith", :job_title=> "Designer", :company=> "Epicodus", :contact_type=> "Co-worker"})
-        contact.save()
-        contact.add_address
-        expect(contact.add_address(street_address, zip)).to(eq([contact], [street_address, zip]))
+        # contact = Contacts.new({:first_name=> "Anna Marie", :last_name=> "Smith", :job_title=> "Designer", :company=> "Epicodus", :contact_type=> "Co-worker"})
+        # contact.save()
+        new_address = Address.new({:street=> "123 B Street", :city=> "Portland", :state=> "OR", :zip=> "97302"})
+        expect(new_address.add_address()).to(eq([new_address]))
       end
     end
 
